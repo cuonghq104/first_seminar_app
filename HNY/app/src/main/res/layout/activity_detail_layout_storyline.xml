@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackgroundDark"
+    android:paddingStart="10dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="20dp">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/avenir"
+        android:text="Storylne"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/textSizePrimaryText" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_story_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/avenir"
+        android:text="The year is 1926, and Newt Scamander (Eddie Redmayne) has just completed a global excursion to find and document an extraordinary array of magical creatures. Arriving in New York for a brief stopover, he might have come and gone without incident, were it not for a No-Maj (American for Muggle) named Jacob, a misplaced magical case, and the escape of some of Newt's fantastic beasts, which could spell trouble for both the wizarding and No-Maj worlds"
+        android:textColor="@color/colorTextContent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_trailer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/background_button_app_1"
+        android:drawableStart="@drawable/ic_play_circle_filled_black_24dp"
+        android:drawablePadding="10dp"
+        android:drawableTint="#88000000"
+        android:fontFamily="@font/avenir"
+        android:text="Play trailer"
+        app:layout_constraintTop_toBottomOf="@id/tv_story_line" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/background_button_app_2"
+        android:drawableStart="@drawable/ic_star_black_24dp"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/colorPrimary"
+        android:fontFamily="@font/avenir"
+        android:text="Rate movie"
+        android:textColor="@color/colorTextContent"
+        app:layout_constraintStart_toEndOf="@id/btn_trailer"
+        app:layout_constraintTop_toTopOf="@id/btn_trailer" />
+
+
+</android.support.constraint.ConstraintLayout>

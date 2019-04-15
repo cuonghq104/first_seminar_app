@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="10dp">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:scaleType="centerCrop"
+        android:id="@+id/imv_actor"
+        android:src="@drawable/actor"
+        android:layout_width="180dp"
+        android:layout_height="240dp" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/btn_favorite"
+        android:layout_margin="5dp"
+        app:layout_constraintEnd_toEndOf="@id/imv_actor"
+        app:layout_constraintTop_toTopOf="@id/imv_actor"
+        android:src="@drawable/ic_favorite_black_24dp"
+        android:background="@android:color/transparent"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <LinearLayout
+        android:background="@drawable/background_person_title_gradient"
+        android:padding="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/imv_actor"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:maxLines="1"
+            android:maxWidth="180dp"
+            android:id="@+id/tv_name"
+            android:text="Robert Pattinson"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:maxLines="1"
+            android:id="@+id/tv_role"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryText"
+            android:drawableStart="@drawable/ic_stars_black_24dp"
+            android:drawableTint="@color/colorPrimary"
+            android:drawablePadding="10dp"
+            android:text="Edward Cullen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

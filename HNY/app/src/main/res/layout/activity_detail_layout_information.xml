@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackgroundDark"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:fontFamily="@font/avenir"
+        android:id="@+id/tv_title"
+        android:text="about film"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="@dimen/textSizePrimaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:paddingEnd="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:fontFamily="@font/avenir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Original title: "
+                android:textColor="@color/colorSecondaryText" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_original_title"
+                android:fontFamily="@font/avenir"
+                android:textColor="@color/colorTextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Fantastic Beasts and Where to Find Them"
+                android:singleLine="false" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="20dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type: "
+                android:textColor="@color/colorSecondaryText" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_type"
+                android:textColor="@color/colorTextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Family, Fantasy, Adventure"
+                android:singleLine="false" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="20dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Production: "
+                android:textColor="@color/colorSecondaryText" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_production"
+                android:textColor="@color/colorTextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="United Kingdom, USA"
+                android:singleLine="false" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="20dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Premiere: "
+                android:textColor="@color/colorSecondaryText" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_premiere"
+                android:textColor="@color/colorTextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="8 November 2016"
+                android:singleLine="false" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="20dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description: "
+                android:textColor="@color/colorSecondaryText" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_description"
+                android:textColor="@color/colorTextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="8 November 2016"
+                android:singleLine="false" />
+        </TableRow>
+    </TableLayout>
+</android.support.constraint.ConstraintLayout>
