@@ -2,19 +2,29 @@ package ptit.cuonghq.hny.detail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import com.journeyapps.barcodescanner.CaptureActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import ptit.cuonghq.hny.CaptureActivityPortrait;
 import ptit.cuonghq.hny.R;
 
 public class DetailActivity extends AppCompatActivity implements DetailContract.View{
@@ -32,6 +42,8 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
     private AppCompatTextView mTvActorTitle, mTvCrewTitle;
     private RecyclerView mRvCast, mRvCrew;
     private DetailPersonAdapter mAdapterCast, mAdapterCrew;
+    private AppCompatButton btnScan;
+    private RelativeLayout rlDemo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +52,24 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
         initView();
         setupUI();
         initData();
+        addListener();
+    }
+
+    private void addListener() {
+        btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator integrator = new IntentIntegrator(DetailActivity.this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+                integrator.setPrompt("Scan a QR code");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(true);
+                integrator.setCaptureActivity(CaptureActivityPortrait.class);
+                integrator.setOrientationLocked(false);
+                integrator.initiateScan();
+            }
+        });
     }
 
     private void setupUI() {
@@ -58,6 +88,8 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
     }
 
     private void initView() {
+        rlDemo = findViewById(R.id.layout_demo);
+        rlDemo.getBackground().setLevel(2000);
         mLayoutStoryline = findViewById(R.id.layout_storyline);
         mLayoutActor = findViewById(R.id.layout_actor);
         mLayoutInformation = findViewById(R.id.layout_information);
@@ -81,6 +113,8 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
 
         mRvCast.setAdapter(mAdapterCast);
         mRvCrew.setAdapter(mAdapterCrew);
+
+        btnScan = mLayoutStoryline.findViewById(R.id.btn_trailer);
     }
 
     @Override
@@ -144,5 +178,18 @@ public class DetailActivity extends AppCompatActivity implements DetailContract.
     @Override
     public void getMovieCreditFailed(String msg) {
         Log.d("getMovieCreditFailed", msg);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() != null) {
+                Toast.makeText(getApplicationContext(), result.getContents(), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
